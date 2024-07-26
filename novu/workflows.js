@@ -1,5 +1,6 @@
 const { workflow } = require('@novu/framework');
 const { z } = require('zod');
+
 const testWorkflow = workflow('test-workflow', async ({ step, payload }) => {
     await step.email('send-email', async (controls) => {
         return {
@@ -21,7 +22,7 @@ const testWorkflow = workflow('test-workflow', async ({ step, payload }) => {
 const pushNotificationWorkflow = workflow(
     "push-notification-workflow",
     async ({ step, payload }) => {
-        await step.push("send-push", async () => {
+        await step.inApp("send-push", async () => {
             return {
                 subject: "Hello world",
                 title: "New Notification",
@@ -32,6 +33,5 @@ const pushNotificationWorkflow = workflow(
     },
     { payloadSchema: z.object({ name: z.string() }) }
 );
-
 
 module.exports = { testWorkflow, pushNotificationWorkflow };
