@@ -5,7 +5,7 @@ const { testWorkflow, pushNotificationWorkflow } = require("./novu/workflows");
 const app = express();
 app.use(express.json()); // Required for Novu POST requests
 
-// app.use("/api/novu", serve({ workflows: [testWorkflow, pushNotificationWorkflow] }));
+app.use("/api/novu", serve({ workflows: [testWorkflow, pushNotificationWorkflow] }));
 pushNotificationWorkflow.trigger(({
     to: { subscriberId: 'SUBSCRIBER_ID' },
     payload: {
