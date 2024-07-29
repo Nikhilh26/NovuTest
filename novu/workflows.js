@@ -22,6 +22,7 @@ const testWorkflow = workflow('test-workflow', async ({ step, payload }) => {
 const pushNotificationWorkflow = workflow(
     "push-notification-workflow",
     async ({ step, payload }) => {
+        console.log(payload);
         await step.inApp("send-push", async () => {
             return {
                 subject: "Hello world",
@@ -33,5 +34,5 @@ const pushNotificationWorkflow = workflow(
     },
     { payloadSchema: z.object({ name: z.string() }) }
 );
-
+// headless
 module.exports = { testWorkflow, pushNotificationWorkflow };
