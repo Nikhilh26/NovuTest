@@ -10,7 +10,8 @@ app.use("/api/novu", serve({ workflows: [testWorkflow, pushNotificationWorkflow]
 pushNotificationWorkflow.trigger(({
     to: [{ subscriberId: 'SUBSCRIBER_ID' }, { subscriberId: '66a25b5bf502999ed8c9b36b' }],
     payload: {
-        name: "BackendTest6"
+        name: "BackendTest6",
+        rollNo: 1
     }
 })).then((success) => {
     console.log('sucess', ' ', success);

@@ -28,7 +28,7 @@ const pushNotificationWorkflow = workflow(
                 subject: "Hello world",
                 title: "New Notification",
                 content: `Hello ${payload.name}, you have a new notification!`,
-                body: `${payload.name}`
+                body: `${payload.name} and having ${payload.rollNo}`
             };
         });
     },
