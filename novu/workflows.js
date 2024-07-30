@@ -28,11 +28,11 @@ const pushNotificationWorkflow = workflow(
                 subject: "Hello world",
                 title: "New Notification",
                 content: `Hello ${payload.name}, you have a new notification!`,
-                body: `${payload.name} and having ${payload.rollNo}`
+                body: `${payload.name} hello`
             };
         });
     },
-    { payloadSchema: z.object({ name: z.string(), rollNo: z.number() }) }
+    { payloadSchema: z.object({ name: z.string() }) }
 );
 // headless
 module.exports = { testWorkflow, pushNotificationWorkflow };
